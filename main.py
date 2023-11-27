@@ -1,17 +1,11 @@
 from openai import OpenAI
+from docx import Document
 client = OpenAI()
+audio_file_path = open("audio.mp3", "rb")
+peder =
+def transcribe_audio(audio_file_path):
+    with open(audio_file_path, 'rb') as audio_file:
+        transcription = client.audio.transcriptions.create("whisper-1", audio_file)
+    return transcription[peder]
 
-audio_file = open("\Users\PCI\Music\Pythonaudio", "rb")
-transcript = client.audio.transcriptions.create(
-  model="whisper-1",
-  file=audio_file
-
-client = OpenAI()
-
-response = client.audio.speech.create(
-    model="tts-1",
-    voice="alloy",
-    input="Hello world! This is a streaming test.",
-)
-
-response.stream_to_file("output.mp3")
+print(peder)
